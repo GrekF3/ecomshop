@@ -60,7 +60,7 @@
                                     <li>
                                         <a href="my-account.html">
                                             <i class="zmdi zmdi-account"></i>
-                                            Мой аккаунт
+                                            Аккаунт
                                         </a>
                                     </li>
                                     <li>
@@ -89,7 +89,7 @@
                             <!-- logo -->
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="{% url 'home' %}">
                                         <img src="{% static 'img/logo/logo.png' %}" alt="main logo">
                                     </a>
                                 </div>
@@ -98,7 +98,7 @@
                             <div class="col-md-8 hidden-sm hidden-xs">
                                 <nav id="primary-menu">
                                     <ul class="main-menu text-center">
-                                        <li><a href="index.html">Домой</a>
+                                        <li><a href="{% url 'home' %}">Домой</a>
                                         </li>
                                         <li class="mega-parent"><a href="#">Товары</a>
                                             <div class="mega-menu-area clearfix">
@@ -541,125 +541,20 @@
                         <div class="mobile-menu">
                             <nav id="dropdown">
                                 <ul>
-                                    <li><a href="index.html">Главная</a>
-                                        <ul>
-                                            <li>
-                                                <a href="index.html">Главная Версия 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-2.html">Главная Версия 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-3.html">Главная Версия 3</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-4.html">Главная 4 Анимированных текст</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-5.html">Главная 5 Анимированный текст</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-6.html">Главная 6 Видео</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-7.html">Главная 7 Видео Ovlerlay</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-8.html">Главная 8 Коробка-1</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-9.html">Главная 9 Красотища</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-10.html">Главная 10 Boxed-2</a>
-                                            </li>
-                                        </ul>
+                                    <li>
+                                        <a href="{% url 'home' %}">Главная</a>
                                     </li>
                                     <li>
-                                        <a href="shop.html">Products</a>
-                                    </li>
-                                    <li><a href="#">Pages</a>
-                                        <ul>
-                                            <li>
-                                                <a href="shop.html">Shop</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-list.html">Shop List</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-product.html">Single Product</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-product-left-sidebar.html">Single Product Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-product-no-sidebar.html">Single Product No Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="cart.html">Shopping Cart</a>
-                                            </li>
-                                            <li>
-                                                <a href="wishlist.html">Wishlist</a>
-                                            </li>
-                                            <li>
-                                                <a href="checkout.html">Checkout</a>
-                                            </li>
-                                            <li>
-                                                <a href="order.html">Order</a>
-                                            </li>
-                                            <li>
-                                                <a href="login.html">Login</a>
-                                            </li>
-                                            <li>
-                                                <a href="My-account.html">My Account</a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">About us</a>
-                                            </li>
-                                            <li>
-                                                <a href="404.html">404</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul>
-                                            <li>
-                                                <a href="blog.html">Blog</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-right-sidebar.html">Blog Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-2.html">Blog style 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-2-left-sidebar.html">Blog 2 Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-2-right-sidebar.html">Blog 2 Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-details.html">Blog Details</a>
-                                            </li>
-                                        </ul>
+                                        <a href="shop.html">Продукты</a>
                                     </li>
                                     <li>
-                                        <a href="about.html">About Us</a>
+                                        <a href="blog.html">Блог</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="about.html">О нас</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Контакты</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -691,8 +586,8 @@
                                             <img src="{% static 'img/logo/logo.png' %}" alt="">
                                         </div>
                                         <div class="footer-brief">
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the subas industry's standard dummy text ever since the 1500s,</p>
-                                            <p>When an unknown printer took a galley of type and If you are going to use a passage of Lorem Ipsum scrambled it to make.</p>
+                                            <p>Если бы меня спросили купить или купить я бы ответил, что покупка - не продажа следует и задуматься,</p>
+                                            <p>Тогда в любом случае я покупаю когда покупаю, а когда не покупаю то и не покупаю, получается.</p>
                                         </div>
                                         <ul class="footer-social">
                                             <li>
@@ -712,69 +607,69 @@
                                 </div>
                                 <div class="col-lg-2 hidden-md hidden-sm">
                                     <div class="single-footer">
-                                        <h4 class="footer-title border-left">Shipping</h4>
+                                        <h4 class="footer-title border-left">Категории</h4>
                                         <ul class="footer-menu">
                                             <li>
-                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>New Products</span></a>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Новинки</span></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Discount Products</span></a>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Товары со скидкой</span></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Best Sell Products</span></a>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Самые продаваемые</span></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Popular Products</span></a>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Популярные товары</span></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Manufactirers</span></a>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Производители</span></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Suppliers</span></a>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Поставщики</span></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Special Products</span></a>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Специальные товары</span></a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-md-3 col-sm-4">
                                     <div class="single-footer">
-                                        <h4 class="footer-title border-left">my account</h4>
+                                        <h4 class="footer-title border-left">Мой аккаунт</h4>
                                         <ul class="footer-menu">
                                             <li>
-                                                <a href="my-account.html"><i class="zmdi zmdi-circle"></i><span>My Account</span></a>
+                                                <a href="my-account.html"><i class="zmdi zmdi-circle"></i><span>Мой аккаунт</span></a>
                                             </li>
                                             <li>
-                                                <a href="wishlist.html"><i class="zmdi zmdi-circle"></i><span>My Wishlist</span></a>
+                                                <a href="wishlist.html"><i class="zmdi zmdi-circle"></i><span>Избранное</span></a>
                                             </li>
                                             <li>
-                                                <a href="cart.html"><i class="zmdi zmdi-circle"></i><span>My Cart</span></a>
+                                                <a href="cart.html"><i class="zmdi zmdi-circle"></i><span>Корзина</span></a>
                                             </li>
                                             <li>
-                                                <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Sign In</span></a>
+                                                <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Вход</span></a>
                                             </li>
                                             <li>
-                                                <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Registration</span></a>
+                                                <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Регистрация</span></a>
                                             </li>
                                             <li>
-                                                <a href="checkout.html"><i class="zmdi zmdi-circle"></i><span>Check out</span></a>
+                                                <a href="checkout.html"><i class="zmdi zmdi-circle"></i><span>Перейти к покупке</span></a>
                                             </li>
                                             <li>
-                                                <a href="order.html"><i class="zmdi zmdi-circle"></i><span>Oder Complete</span></a>
+                                                <a href="order.html"><i class="zmdi zmdi-circle"></i><span>Покупка оплачена</span></a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4">
                                     <div class="single-footer">
-                                        <h4 class="footer-title border-left">Get in touch</h4>
+                                        <h4 class="footer-title border-left">Обратная связь</h4>
                                         <div class="footer-message">
                                             <form action="#">
-                                                <input type="text" name="name" placeholder="Your name here...">
-                                                <input type="text" name="email" placeholder="Your email here...">
-                                                <textarea class="height-80" name="message" placeholder="Your messege here..."></textarea>
-                                                <button class="submit-btn-1 mt-20 btn-hover-1" type="submit">submit message</button>
+                                                <input type="text" name="name" placeholder="Ваше имя...">
+                                                <input type="text" name="email" placeholder="Почта...">
+                                                <textarea class="height-80" name="message" placeholder="Сообщение..."></textarea>
+                                                <button class="submit-btn-1 mt-20 btn-hover-1" type="submit">Отправить сообщение</button>
                                             </form>
                                         </div>
                                     </div>
