@@ -208,6 +208,7 @@
                                 <div class="row">
                                     <div class="active-related-product">
                                          <!-- product-item start -->
+                                        {% for product in products.objects.all %}
                                         <div class="col-xs-12">
                                             <div class="product-item">
                                                 <div class="product-img">
@@ -217,7 +218,7 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <h6 class="product-title">
-                                                        <a href="single-product.html">Product Name</a>
+                                                        <a href="single-product.html">{{ product.name }}</a>
                                                     </h6>
                                                     <div class="pro-rating">
                                                         <a href="#"><i class="zmdi zmdi-star"></i></a>
@@ -226,7 +227,7 @@
                                                         <a href="#"><i class="zmdi zmdi-star-half"></i></a>
                                                         <a href="#"><i class="zmdi zmdi-star-outline"></i></a>
                                                     </div>
-                                                    <h3 class="pro-price">$ 869.00</h3>
+                                                    <h3 class="pro-price">$ {{ product.price }}</h3>
                                                     <ul class="action-button">
                                                         <li>
                                                             <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite"></i></a>
@@ -244,6 +245,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {% endfor %}
                                         <!-- product-item end -->
                                          <!-- product-item start -->
                                         <div class="col-xs-12">

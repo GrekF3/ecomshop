@@ -108,7 +108,7 @@
                                         {% endif %}
                                     {% endfor %}
                                     <h3 class="brand-title text-gray">
-                                        <a href="#">{{ product.brand }}</a>
+                                        <a href="{% url 'shop_brand' product.brand.slug %}">{{ product.brand }}</a>
                                     </h3>
                                 </div>
                             </div>

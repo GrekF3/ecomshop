@@ -26,6 +26,7 @@ class Product(models.Model):
     rating = models.PositiveSmallIntegerField(default=0)
     color = models.CharField(max_length=100, default=None)
     slug = models.SlugField(max_length=400, unique=True, db_index=True, verbose_name="URL", default=None)
+    price = models.DecimalField(default=0, max_digits=20, decimal_places=2)
 
     def get_absolute_url(self):
         return reverse('product', kwargs={'product_slug':self.slug})
