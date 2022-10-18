@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'shop',
     'authentication',
     'rest_framework',
+    'users',
 ]
 
 REST_FRAMEWORK = {

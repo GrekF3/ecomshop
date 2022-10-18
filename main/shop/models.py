@@ -1,14 +1,19 @@
-from django import forms
 from django.db import models
+from django.urls import reverse
 
 
 class Brand(models.Model):
     brand_name = models.CharField(max_length=200)
     Androind = models.BooleanField(default=None)
+    slug = models.SlugField(max_length=400, unique=True, db_index=True, verbose_name="URL", default=None)
+    banner = models.ImageField(upload_to='brand_baner', default=None)
+
 
     def __str__(self):
         return self.brand_name
 
+    def get_absolute_url(self):
+        return reverse('brand', kwargs={'brand_slug':self.slug})
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -20,23 +25,28 @@ class Product(models.Model):
 
     rating = models.PositiveSmallIntegerField(default=0)
     color = models.CharField(max_length=100, default=None)
+    slug = models.SlugField(max_length=400, unique=True, db_index=True, verbose_name="URL", default=None)
+
+    def get_absolute_url(self):
+        return reverse('product', kwargs={'product_slug':self.slug})
 
     def __str__(self):
         return '{brand} {name} {color}'.format(
-            brand = self.brand,
-            name = self.name,
-            color = self.color,
+            brand=self.brand,
+            name=self.name,
+            color=self.color,
         )
 
-class Gallery(models.Model):
 
-    image = models.ImageField(upload_to='gallery')
+class Gallery(models.Model):
+    image = models.ImageField(upload_to='gallery', help_text='270x300')
     product = models.ForeignKey(Product,
                                 on_delete=models.CASCADE,
-                                related_name='gallery')
+                                related_name='images')
 
     def __str__(self):
         return self.product.name
+
 
 class Reviews(models.Model):
     name = models.CharField(max_length=100)
@@ -49,8 +59,12 @@ class Reviews(models.Model):
         return '{name} {lastname}'.format(name=self.name,
                                           lastname=self.last_name)
 
+
 class Ad(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='Ads_product')
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=255)
     photo = models.ImageField(upload_to='ads', help_text='800x600')
+
+    def __str__(self):
+        return self.title

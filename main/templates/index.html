@@ -48,71 +48,33 @@
 
         {% block content %}
         <!-- START SLIDER AREA -->
+
         <div class="slider-area  plr-185  mb-80">
             <div class="container-fluid">
                 <div class="slider-content">
                     <div class="row">
                         <div class="active-slider-1 slick-arrow-1 slick-dots-1">
                             <!-- layer-1 Start -->
+                            {% for ad in ads %}
                             <div class="col-md-12">
                                 <div class="layer-1">
                                     <div class="slider-img">
-                                        <img src="{% static 'img/slider/slider-1/1.jpg' %}" alt="">
+                                        <img src="{{ ad.photo.url }}" alt="">
                                     </div>
                                     <div class="slider-info gray-bg">
                                         <div class="slider-info-inner">
-                                            <h1 class="slider-title-1 text-uppercase text-black-1">WaterProof smartphone</h1>
+                                            <h1 class="slider-title-1 text-uppercase text-black-1">{{ ad.title }}</h1>
                                             <div class="slider-brief text-black-2">
-                                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,</p>
+                                                <p>{{ ad.description }}</p>
                                             </div>
-                                            <a href="#" class="button extra-small button-black">
-                                                <span class="text-uppercase">Buy now</span>
+                                            <a href="{% url 'product_detail' ad.product.brand.slug ad.product.slug %}" class="button extra-small button-black">
+                                                <span class="text-uppercase">Купить</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- layer-1 end -->
-                            <!-- layer-1 Start -->
-                            <div class="col-md-12">
-                                <div class="layer-1">
-                                    <div class="slider-img">
-                                        <img src="{% static 'img/slider/slider-1/2.jpg' %}" alt="">
-                                    </div>
-                                    <div class="slider-info gray-bg">
-                                        <div class="slider-info-inner">
-                                            <h1 class="slider-title-1 text-uppercase text-black-1">WaterProof smartphone</h1>
-                                            <div class="slider-brief text-black-2">
-                                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,</p>
-                                            </div>
-                                            <a href="#" class="button extra-small button-black">
-                                                <span class="text-uppercase">Buy now</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- layer-1 end -->
-                            <!-- layer-1 Start -->
-                            <div class="col-md-12">
-                                <div class="layer-1">
-                                    <div class="slider-img">
-                                        <img src="{% static 'img/slider/slider-1/1.jpg' %}" alt="">
-                                    </div>
-                                    <div class="slider-info gray-bg">
-                                        <div class="slider-info-inner">
-                                            <h1 class="slider-title-1 text-uppercase text-black-1">WaterProof smartphone</h1>
-                                            <div class="slider-brief text-black-2">
-                                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,</p>
-                                            </div>
-                                            <a href="#" class="button extra-small button-black">
-                                                <span class="text-uppercase">Buy now</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- layer-1 end -->
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -129,62 +91,28 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="section-title text-left mb-40">
-                                <h2 class="uppercase">By Brands</h2>
-                                <h6>There are many variations of passages of brands available,</h6>
+                                <h2 class="uppercase">По брендам</h2>
+                                <h6>Открой для себя новое</h6>
                             </div>
                         </div>
                     </div>
                     <div class="by-brand-product">
                         <div class="row active-by-brand slick-arrow-2">
                             <!-- single-brand-product start -->
+                            {% for product in products %}
                             <div class="col-xs-12">
                                 <div class="single-brand-product">
-                                    <a href="single-product.html"><img src="{% static 'img/product/5.jpg' %}" alt=""></a>
+                                    {% for images in product.images.all %}
+                                        {% if forloop.counter == 1 %}
+                                    <a href="{% url 'product_detail' product.brand.slug product.slug %}"><img src="{{ images.image.url }}" alt=""></a>
+                                        {% endif %}
+                                    {% endfor %}
                                     <h3 class="brand-title text-gray">
-                                        <a href="#">Brand name</a>
+                                        <a href="#">{{ product.brand }}</a>
                                     </h3>
                                 </div>
                             </div>
-                            <!-- single-brand-product end -->
-                            <!-- single-brand-product start -->
-                            <div class="col-xs-12">
-                                <div class="single-brand-product">
-                                    <a href="single-product.html"><img src="{% static 'img/product/6.jpg' %}" alt=""></a>
-                                    <h3 class="brand-title text-gray">
-                                        <a href="#">Brand name</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <!-- single-brand-product end -->
-                            <!-- single-brand-product start -->
-                            <div class="col-xs-12">
-                                <div class="single-brand-product">
-                                    <a href="single-product.html"><img src="{% static 'img/product/7.jpg' %}" alt=""></a>
-                                    <h3 class="brand-title text-gray">
-                                        <a href="#">Brand name</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <!-- single-brand-product end -->
-                            <!-- single-brand-product start -->
-                            <div class="col-xs-12">
-                                <div class="single-brand-product">
-                                    <a href="single-product.html"><img src="{% static 'img/product/8.jpg' %}" alt=""></a>
-                                    <h3 class="brand-title text-gray">
-                                        <a href="#">Brand name</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <!-- single-brand-product end -->
-                            <!-- single-brand-product start -->
-                            <div class="col-xs-12">
-                                <div class="single-brand-product">
-                                    <a href="single-product.html"><img src="{% static 'img/product/8.jpg' %}" alt=""></a>
-                                    <h3 class="brand-title text-gray">
-                                        <a href="#">Brand name</a>
-                                    </h3>
-                                </div>
-                            </div>
+                            {% endfor %}
                             <!-- single-brand-product end -->
                         </div>
                     </div>
@@ -198,8 +126,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="section-title text-left mb-40">
-                                <h2 class="uppercase">Featured product</h2>
-                                <h6>There are many variations of passages of brands available,</h6>
+                                <h2 class="uppercase">Интересное</h2>
+                                <h6>Выбери свою технику,</h6>
                             </div>
                         </div>
                     </div>
@@ -215,7 +143,7 @@
                                     </div>
                                     <div class="product-info">
                                         <h6 class="product-title">
-                                            <a href="single-product.html">Product Name</a>
+                                            <a href="single-product.html">Product name</a>
                                         </h6>
                                         <div class="pro-rating">
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
@@ -400,7 +328,6 @@
                 </div>
             </div>
             <!-- FEATURED PRODUCT SECTION END -->
-
             <!-- UP COMMING PRODUCT SECTION START -->
             <div class="up-comming-product-section mb-80">
                 <div class="container">

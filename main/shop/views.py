@@ -1,10 +1,24 @@
 from django.shortcuts import render
-from rest_framework import viewsets
-from django.contrib.auth.models import User, Group
+from .models import *
+from django.views.generic import DetailView
+from django.views.generic import ListView
 
 
 def index(request):
-    return render(request, 'index.html')
+    ads = Ad.objects.all()
+    products = Product.objects.all()
+    return render(request, 'index.html', {'ads': ads,
+                                          'products': products})
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'product-detail.html'
+    context_object_name = 'product'
+    slug_url_kwarg = 'product_slug'
+
+
+
+
 
 
 def about(request):
@@ -13,7 +27,3 @@ def about(request):
 
 def contacts(request):
     return render(request, 'contact.html')
-
-
-def product_view(request):
-    return render(request, 'single-product.html')

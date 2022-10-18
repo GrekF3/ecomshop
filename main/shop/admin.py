@@ -1,19 +1,20 @@
 from django.contrib import admin
 from .models import *
 
-class ProductAdmin(admin.ModelAdmin):
-    pass
 
+@admin.register(Brand)
 class BrandAdmin(admin.ModelAdmin):
-    pass
+    prepopulated_fields = {"slug": ("brand_name",)}
 
-class GalleryAdmin(admin.ModelAdmin):
-    pass
+class GalleryAdmin(admin.TabularInline):
+    fk_name = 'product'
+    model = Gallery
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+    inlines = [GalleryAdmin,]
+
 @admin.register(Ad)
 class AdsAdmin(admin.ModelAdmin):
     pass
-
-
-admin.site.register(Brand,BrandAdmin)
-admin.site.register(Product,ProductAdmin)
-admin.site.register(Gallery,GalleryAdmin)
