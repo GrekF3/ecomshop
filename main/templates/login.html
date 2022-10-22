@@ -37,8 +37,8 @@
                                     {% csrf_token %}
                                     <div class="login-account p-30 box-shadow">
                                         <p>Для зарегистрированных пользователей</p>
-                                        <input type="text" name="email" id="id_email" placeholder="Email">
-                                        <input type="password" name="password" required id="id_password" placeholder="Password">
+                                        <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="254" required id="id_username" placeholder="Почта">
+                                        <input type="password" name="password" autocomplete="current-password" required id="id_password" placeholder="Пароль">
                                         <p><small><a href="#">Забыли пароль?</a></small></p>
                                         <button class="submit-btn-1 btn-hover-1" type="submit">Вход</button>
                                     </div>

@@ -57,6 +57,7 @@
                         <div class="col-sm-6 col-xs-12">
                             <div class="top-link clearfix">
                                 <ul class="link f-right">
+                                    {% if user.is_authenticated %}
                                     <li>
                                         <a href="{% url 'account' %}">
                                             <i class="zmdi zmdi-account"></i>
@@ -69,12 +70,24 @@
                                             Избранное (0)
                                         </a>
                                     </li>
+
+                                    <li>
+                                        <a href="{% url 'logout' %}">
+                                            <i class="zmdi zmdi-lock"></i>
+                                            Выход
+                                        </a>
+                                    </li>
+
+                                    {% else %}
+
                                     <li>
                                         <a href="{% url 'login' %}">
                                             <i class="zmdi zmdi-lock"></i>
                                             Авторизация
                                         </a>
                                     </li>
+
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
