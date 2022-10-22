@@ -18,3 +18,7 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Ad)
 class AdsAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(Reviews)
+class ReviewsAdmin(admin.ModelAdmin):
+    pass

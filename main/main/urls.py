@@ -21,7 +21,10 @@ from django.conf import settings
 from shop import views
 
 urlpatterns = [
-                  path('', include('shop.urls')),
                   path('admin/', admin.site.urls),
-                  path('accounts/', include('django.contrib.auth.urls')),
+                  path('', include('shop.urls')),
+                  path('', include('authentication.urls')),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'shop.views.customhandler404'

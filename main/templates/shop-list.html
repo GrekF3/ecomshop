@@ -1,28 +1,6 @@
 {% extends 'base-page.html' %}
 {% load static %}
 
-
-<!-- All CSS Files -->
-    <!-- Bootstrap fremwork main css -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <!-- Nivo-slider css -->
-    <link rel="stylesheet" href="{% static 'lib/css/nivo-slider.css' %}">
-    <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="{% static 'css/core.css' %}">
-    <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="{% static 'css/shortcode/shortcodes.css' %}">
-    <!-- Theme main style -->
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <!-- Responsive css -->
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-    <!-- Template color css -->
-    <link href="{% static 'css/color/color-core.css' %}" data-style="styles" rel="stylesheet">
-    <!-- User style -->
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-
-    <!-- Modernizr JS -->
-    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
-
 <head>
     {% block title %}
         {% for product in product_list %}
@@ -45,6 +23,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="breadcrumbs-inner">
+                                {% if product_list %}
                                 {% for product in product_list %}
                                     {% if forloop.counter == 1 %}
                                 <h1 class="breadcrumbs-title">{{ product.brand }}</h1>
@@ -52,12 +31,19 @@
                                 {% endfor %}
                                 <ul class="breadcrumb-list">
                                     <li><a href="{% url 'home' %}">Главная</a></li>
-                                    {% for product in product_list %}
-                                        {% if forloop.counter == 1 %}
+                                        {% for product in product_list %}
+                                            {% if forloop.counter == 1 %}
                                     <li>{{ product.brand }} Все товары</li>
-                                        {% endif %}
-                                    {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
                                 </ul>
+                                {% else %}
+                                <h1 class="breadcrumbs-title">Такого товара не существует</h1>
+                                <ul class="breadcrumb-list">
+                                    <li><a href="{% url 'home' %}">Главная</a></li>
+                                    <li>404</li>
+                                </ul>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
