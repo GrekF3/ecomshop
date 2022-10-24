@@ -1,5 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
+
+from cart.Cart import Cart
 from .models import *
 from blog.models import BlogPost
 from django.views.generic import DetailView
@@ -14,6 +16,8 @@ def index(request):
 
     popular_products = Product.objects.all().order_by('-rating')[:10]
 
+    cart = Cart(request)
+
 
 
 
@@ -23,6 +27,7 @@ def index(request):
         'brands': brands,
         'popular_products': popular_products,
         'posts': blog_posts,
+        'cart': cart
     })
 
     return render(request, 'index.html', context=context)
