@@ -11,6 +11,7 @@ from .managers import UserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    username = None
 
     COUNTRIES = [
         ('Россия', 'Россия')

@@ -1,6 +1,6 @@
+<!doctype html>
 {% extends 'base-page.html' %}
 {% load static %}
-<!doctype html>
 <html class="no-js" lang="en">
 
 <head>
@@ -44,6 +44,7 @@
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
                             <!-- single-product-area start -->
+
                             <div class="single-product-area mb-80">
                                 <div class="row">
                                     <!-- imgs-zoom-area start -->
@@ -160,42 +161,37 @@
                                                     <a href="#" tabindex="0"><i class="zmdi zmdi-star"></i></a>
                                                     <a href="#" tabindex="0"><i class="zmdi zmdi-star-half"></i></a>
                                                     <a href="#" tabindex="0"><i class="zmdi zmdi-star-outline"></i></a>
-                                                    <span class="text-black-5">( 27 Rating )</span>
+                                                    <span class="text-black-5">{{ product.rating }}</span>
                                                 </div>
                                             </div>
                                             <!-- hr -->
                                             <hr>
                                             <!-- plus-minus-pro-action -->
-                                            <div class="plus-minus-pro-action">
-                                                <div class="sin-plus-minus f-left clearfix">
-                                                    <p class="color-title f-left">КОЛ-ВО:</p>
-                                                    <div class="cart-plus-minus f-left">
-                                                        <input type="text" value="01" name="qtybutton" class="cart-plus-minus-box">
-                                                    </div>   
+                                            <form action="{% url 'cart_add' product.id %}" method="post">
+                                                {% csrf_token %}
+                                                <div class="plus-minus-pro-action">
+                                                    <div class="sin-plus-minus f-left clearfix">
+                                                        <p class="color-title f-left">КОЛ-ВО:</p>
+                                                        <div class="cart-plus-minus f-left">
+                                                            <input type="text" value="1" name="quantity" class="cart-plus-minus-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="sin-pro-action f-right">
+                                                        <ul class="action-button">
+                                                            <li>
+                                                                <button class="submit-btn-1 mt-0 btn-hover-1">Добавить в корзину</button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                                <div class="sin-pro-action f-right">
-                                                    <ul class="action-button">
-                                                        <li>
-                                                            <a href="#" title="Wishlist" tabindex="0"><i class="zmdi zmdi-favorite"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" data-toggle="modal" data-target="#productModal" title="Quickview" tabindex="0"><i class="zmdi zmdi-zoom-in"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="Compare" tabindex="0"><i class="zmdi zmdi-refresh"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="Add to cart" tabindex="0"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            </form>
                                         </div>    
                                     </div>
                                     <!-- single-product-info end -->
                                 </div>
                             </div>
                             <!-- single-product-area end -->
+
                             <div class="related-product-area">
                                 <div class="row">
                                     <div class="col-md-12">
